@@ -40,7 +40,7 @@ const FirstStep = (props) => {
          },[])
          useEffect(() => {
             const list = () => posi.filter(p => p.team_id == teamid)
-            .map((p) => <option key={p.id} value ={p.team_id} >{p.name}</option> )
+            .map((p) => <option key={p.id}  label={p.name} >{p.name}</option> )
             setListItems(list)
          },[teamid])
          console.log('teamid - ' , teamid)
@@ -57,17 +57,17 @@ const FirstStep = (props) => {
                 <p>gvari</p>
                 <Field name='last_name'/>
                 <p>airchie</p>
-                <Field as="select" name ='team' onChange = {(e) => setTeamid(e.target.value)} >
+                <select  name ='team' onChange = {(e) => setTeamid(e.target.value)} >
                   <option value="select">--select--</option>
                 {team.map((pos) => <option key={pos.id} value ={pos.id} >{pos.name}</option> )}
                     
                     
-                </Field><br />
-                <Field as="select" name="position">
+                </select><br />
+                <select  name="position">
                 {listItems}
                     
                     
-                </Field>
+                </select>
                 
 
 
